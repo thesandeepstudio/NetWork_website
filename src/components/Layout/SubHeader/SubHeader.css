@@ -1,0 +1,151 @@
+/* Sub-header base */
+.sub-header {
+  background-color: white;
+  padding: 0.75rem 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.sub-container {
+  width: 95%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* Group category + search */
+.search-section {
+  display: flex;
+  gap: 10px;
+  flex: 1;
+  min-width: 300px;
+}
+
+.category-select,
+.search-box {
+  height: 48px;
+  padding: 0 15px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.category-select:focus,
+.search-box:focus-within {
+  border-color: #007bff;
+  box-shadow: 0 0 6px rgba(0,123,255,0.2);
+  outline: none;
+}
+
+.search-box {
+  flex: 1;
+  min-width: 200px;
+}
+
+/* Buttons */
+.sub-buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.sub-buttons a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  height: 48px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.signin-btn {
+  background-color: transparent;
+  color: #007bff;
+  border: 2px solid #007bff;
+}
+
+.signin-btn:hover {
+  background-color: #007bff;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.signup-btn {
+  background-color: #007bff;
+  color: white;
+  border: 2px solid #007bff;
+}
+
+.signup-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* Profile Avatar */
+.profile-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #007bff;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.profile-avatar:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* ==========================
+   Responsive Styles
+========================== */
+
+
+
+/* Mobile */
+@media (max-width: 900px) {
+  .sub-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 0 1rem;
+  }
+
+  /* Hide category select on mobile */
+  .category-select {
+    display: none;
+  }
+
+  .search-section {
+    flex: 1;
+  }
+
+  .search-box {
+    width: 100%;
+    height: 48px;
+    padding: 0 12px;
+  }
+
+  .sub-buttons {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  /* Hide desktop profile if needed */
+  .desktop-profile {
+    display: none;
+  }
+}

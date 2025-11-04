@@ -1,0 +1,41 @@
+/* ==========================
+   Global Styles
+========================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  height: 100%; /* full height */
+}
+
+body, #root {
+  font-family: 'Inter', sans-serif;
+  width: 100%;
+  min-height: 100%; /* ensures root fills viewport */
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  color: #333333;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Utility containers */
+.container {
+  max-width: 1500px; /* global content width */
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Main content wrapper to push footer down */
+.main-content {
+  flex: 1;
+}
