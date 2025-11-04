@@ -82,6 +82,23 @@
 }
 
 @media (max-width: 640px) {
+  .companies-container {
+    padding: 20px;
+  }
+  .companies-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    text-align: left;
+  }
+
+  .companies-subtitle {
+    margin-top: 0;
+    font-size: 0.9rem;
+    color: #6b7280;
+    text-align: left;
+  }
+
   .companies-grid {
     grid-template-columns: 1fr;
   }

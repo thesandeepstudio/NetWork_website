@@ -136,12 +136,12 @@
 
   .categories-grid {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 15px;
   }
 
   .category-card {
     flex-direction: row;
-    padding: 12px;
+    padding: 20px;
     align-items: center;
   }
 
