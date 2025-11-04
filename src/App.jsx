@@ -6,6 +6,7 @@ import FindJob from "./pages/FindJob/FindJob";
 import PopularCompanies from "./pages/Companies/Companies";
 import Candidates from "./pages/Candidates/Candidates";
 import CustomerSupport from "./components/Layout/CustomerSupport/CustomerSupport";
+import UnderConstruction from "./components/Layout/UnderConstruction/UnderConstruction";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
           <Route path="/companies" element={<PopularCompanies />} />
           <Route path="/candidates" element={<Candidates />} />
           <Route path="/customerSupport" element={<CustomerSupport />} />
+          <Route path="/underConstruction" element={<UnderConstruction />} />
         </Routes>
       </div>
       <Footer />

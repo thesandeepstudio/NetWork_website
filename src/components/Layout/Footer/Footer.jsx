@@ -27,10 +27,10 @@ const Footer = () => {
         <div className="footer-section">
           <h3 className="footer-subtitle">Quick Links</h3>
           <ul className="footer-links">
-            <li><Link to="/under_construction">About</Link></li>
-            <li><Link to="/under_construction">Contact</Link></li>
-            <li><Link to="/under_construction">Pricing</Link></li>
-            <li><Link to="/under_construction">Blog</Link></li>
+            <li><Link to="/underconstruction">About</Link></li>
+            <li><Link to="/underconstruction">Contact</Link></li>
+            <li><Link to="/underconstruction">Pricing</Link></li>
+            <li><Link to="/underconstruction">Blog</Link></li>
           </ul>
         </div>
 
@@ -41,7 +41,7 @@ const Footer = () => {
             <li><Link to="/findjob">Browse Job</Link></li>
             <li><Link to="/candidates">Browse Employers</Link></li>
             <li><Link to="/profile">Candidate Dashboard</Link></li>
-            <li><Link to="/under_construction">Saved Jobs</Link></li>
+            <li><Link to="/underconstruction">Saved Jobs</Link></li>
           </ul>
         </div>
 
@@ -52,7 +52,7 @@ const Footer = () => {
             <li><Link to="/findjob">Browse Job</Link></li>
             <li><Link to="/candidates">Browse Employers</Link></li>
             <li><Link to="/profile">Candidate Dashboard</Link></li>
-            <li><Link to="/under_construction">Saved Jobs</Link></li>
+            <li><Link to="/underconstruction">Saved Jobs</Link></li>
           </ul>
         </div>
 
@@ -60,9 +60,9 @@ const Footer = () => {
         <div className="footer-section">
           <h3 className="footer-subtitle">Support</h3>
           <ul className="footer-links">
-            <li><Link to="/faq">FAQ</Link></li>
-            <li><Link to="/under_construction">Privacy & Policy</Link></li>
-            <li><Link to="/under_construction">Terms & Conditions</Link></li>
+            <li><Link to="/customersupport">FAQ</Link></li>
+            <li><Link to="/underconstruction">Privacy & Policy</Link></li>
+            <li><Link to="/underconstruction">Terms & Conditions</Link></li>
           </ul>
         </div>
         
