@@ -5,12 +5,12 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  font-family: 'Inter', sans-serif;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  font-family: "Inter", sans-serif;
 }
 
 .navbar-container {
-  max-width: 1260px;
+  max-width: 1500px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -86,8 +86,8 @@
     width: 250px;
     background-color: white;
     padding: 4rem 1rem 1rem 1rem;
-    gap: 1rem;
-    box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+    gap: 2rem;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
     z-index: 200;
   }
 
