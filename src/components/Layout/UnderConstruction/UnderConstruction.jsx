@@ -12,7 +12,7 @@ const UnderConstruction = () => {
     
     <div
       style={{
-        height: "100vh",
+        height: "10vh",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
