@@ -1,14 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./SubHeader.css";
 
 const SubHeader = ({ category, setCategory }) => {
-  const [currentUser, setCurrentUser] = useState(null);
-
-  useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("currentUser"));
-    if (user) setCurrentUser(user);
-  }, []);
+  const [currentUser] = useState(null);
 
   return (
     <div className="sub-header">
@@ -43,26 +38,7 @@ const SubHeader = ({ category, setCategory }) => {
           className="search-box"
         />
 
-        <div className="sub-buttons">
-          {!currentUser ? (
-            <>
-              <Link to="/sign_in" className="signin-btn">
-                Sign In
-              </Link>
-              <Link to="/sign_up" className="signup-btn">
-                Sign Up
-              </Link>
-            </>
-          ) : (
-            <Link to="/profile">
-              <img
-                src="/images/Hacker.png"
-                alt="Profile Avatar"
-                className="profile-avatar"
-              />
-            </Link>
-          )}
-        </div>
+        
       </div>
     </div>
   );

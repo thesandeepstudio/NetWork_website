@@ -5,7 +5,8 @@ import LandingPage from "./pages/LandingPage/Landing";
 import FindJob from "./pages/FindJob/FindJob";
 import PopularCompanies from "./pages/Companies/Companies";
 import Candidates from "./pages/Candidates/Candidates";
-import CustomerSupport from "./components/Layout/CustomerSupport/CustomerSupport";
+import Support from "./pages/Support/Support";
+import Blogs from "./pages/Blogs/Blogs";
 import UnderConstruction from "./components/Layout/UnderConstruction/UnderConstruction";
 
 const App = () => {
@@ -17,11 +18,13 @@ const App = () => {
           <Route path="/findJob" element={<FindJob />} />
           <Route path="/companies" element={<PopularCompanies />} />
           <Route path="/candidates" element={<Candidates />} />
-          <Route path="/customerSupport" element={<CustomerSupport />} />
+          <Route path="/support" element={<Support />} />
+          <Route path="/blogs" element={<Blogs />} />
           <Route path="/underConstruction" element={<UnderConstruction />} />
+          <Route path="/footer" element={<Footer />} />
         </Routes>
       </div>
-      <Footer />
+      
     </>
   );
 };
