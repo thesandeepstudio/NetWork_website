@@ -6,6 +6,7 @@ import PopularCategories from "../../components/Layout/PopularCategories/Popular
 import FeaturedJobs from "../../components/Layout/FeatureJobs/FeatureJobs.jsx";
 import PopularCompanies from "../../components/Layout/PopularCompanies/PopularCompanies.jsx";
 import Testimonials from "../../components/Layout/Testimonials/Testimonials.jsx";
+import Footer from "../../components/Layout/Footer/Footer.jsx";
 
 const LandingPage = () => {
   return (
@@ -17,6 +18,7 @@ const LandingPage = () => {
       <FeaturedJobs />
       <PopularCompanies/>    
       <Testimonials />   
+      <Footer/>
 
     </div>
   );

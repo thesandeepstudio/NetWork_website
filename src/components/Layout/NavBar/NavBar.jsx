@@ -6,6 +6,7 @@ const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navRef = useRef();
   const location = useLocation(); // get current path
+  const [currentUser] = useState(null);
 
   // Close menu if clicked outside
   useEffect(() => {
@@ -23,14 +24,15 @@ const NavBar = () => {
     { path: "/findJob", name: "Find Jobs" },
     { path: "/companies", name: "Companies" },
     { path: "/candidates", name: "Candidates" },
-    { path: "/customerSupport", name: "Support" },
+    { path: "/support", name: "Support" },
+    { path: "/blogs", name: "Blogs" },
   ];
 
   return (
     <nav className="navbar" ref={navRef}>
       <div className="navbar-container">
         <div className="logo">
-          <Link to="/">Network</Link>
+          <Link to="/">NetWork</Link>
         </div>
 
         <div className="hamburger" onClick={() => setIsOpen(!isOpen)}>
@@ -51,6 +53,27 @@ const NavBar = () => {
             </li>
           ))}
         </ul>
+
+        <div className="sub-buttons">
+          {!currentUser ? (
+            <>
+              <Link to="/sign_in" className="signin-btn">
+                Sign In
+              </Link>
+              <Link to="/sign_up" className="signup-btn">
+                Sign Up
+              </Link>
+            </>
+          ) : (
+            <Link to="/profile">
+              <img
+                src="/images/Hacker.png"
+                alt="Profile Avatar"
+                className="profile-avatar"
+              />
+            </Link>
+          )}
+        </div>
       </div>
     </nav>
   );
