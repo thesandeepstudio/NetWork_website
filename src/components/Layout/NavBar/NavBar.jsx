@@ -57,10 +57,10 @@ const NavBar = () => {
         <div className="sub-buttons">
           {!currentUser ? (
             <>
-              <Link to="/sign_in" className="signin-btn">
-                Sign In
+              <Link to="/auth?tab=login" className="signin-btn">
+                Log In
               </Link>
-              <Link to="/sign_up" className="signup-btn">
+              <Link to="/auth?tab=signup" className="signup-btn">
                 Sign Up
               </Link>
             </>

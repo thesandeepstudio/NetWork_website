@@ -8,7 +8,6 @@ const Support = () => {
     <div>
       <NavBar />
       <BlogsPages />
-      <Footer />
     </div>
   );
 };
