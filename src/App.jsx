@@ -1,4 +1,5 @@
 import React from "react";
+import Auth from "./features/Auth/Auth";
 import { Routes, Route } from "react-router-dom";
 import Footer from "./components/Layout/Footer/Footer";
 import LandingPage from "./pages/LandingPage/Landing";
@@ -20,11 +21,12 @@ const App = () => {
           <Route path="/candidates" element={<Candidates />} />
           <Route path="/support" element={<Support />} />
           <Route path="/blogs" element={<Blogs />} />
+          <Route path="/auth" element={<Auth />} />
+
           <Route path="/underConstruction" element={<UnderConstruction />} />
-          <Route path="/footer" element={<Footer />} />
         </Routes>
       </div>
-      
+      <Footer />
     </>
   );
 };
