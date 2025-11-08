@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "./Footer.css";
-
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaLinkedinIn,
+  FaInstagram,
+} from "react-icons/fa";
 
 const Footer = () => {
   const [, setCurrentUser] = useState(null);
@@ -12,64 +16,184 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="footer">
-      <div className="footer-container">
-
+    <footer className="bg-gray-900 text-gray-300 mt-12 px-4 py-12">
+      <div className="max-w-[1420px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
         {/* About Section */}
-        <div className="footer-section">
-          <h2 className="footer-title">NetWork</h2>
-          <p className="footer-text">
+        <div className="mb-6 sm:mb-8">
+          <h2 className="text-white font-bold text-xl">NetWork</h2>
+          <p className="mt-3 text-gray-400 text-sm sm:text-left">
             Connecting talent with opportunities in technology worldwide.
           </p>
+          <div className="flex gap-3 mt-4 sm:justify-start">
+            <Link
+              to="/"
+              className="p-2 rounded-full hover:bg-gray-700 transition-colors"
+            >
+              <FaFacebookF />
+            </Link>
+            <Link
+              to="/"
+              className="p-2 rounded-full hover:bg-gray-700 transition-colors"
+            >
+              <FaTwitter />
+            </Link>
+            <Link
+              to="/"
+              className="p-2 rounded-full hover:bg-gray-700 transition-colors"
+            >
+              <FaLinkedinIn />
+            </Link>
+            <Link
+              to="/"
+              className="p-2 rounded-full hover:bg-gray-700 transition-colors"
+            >
+              <FaInstagram />
+            </Link>
+          </div>
         </div>
 
-        {/* Quick Links Section */}
-        <div className="footer-section">
-          <h3 className="footer-subtitle">Quick Links</h3>
-          <ul className="footer-links">
-            <li><Link to="/underconstruction">About</Link></li>
-            <li><Link to="/underconstruction">Contact</Link></li>
-            <li><Link to="/underconstruction">Pricing</Link></li>
-            <li><Link to="/underconstruction">Blog</Link></li>
+        {/* Quick Links */}
+        <div className="mb-6 sm:mb-8">
+          <h3 className="text-white font-semibold text-lg">Quick Links</h3>
+          <ul className="mt-3 space-y-2">
+            <li>
+              <Link
+                to="/underconstruction"
+                className="hover:text-white transition-colors"
+              >
+                About
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/underconstruction"
+                className="hover:text-white transition-colors"
+              >
+                Contact
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/underconstruction"
+                className="hover:text-white transition-colors"
+              >
+                Pricing
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/underconstruction"
+                className="hover:text-white transition-colors"
+              >
+                Blog
+              </Link>
+            </li>
           </ul>
         </div>
 
-        {/* Candidates Link Section*/}
-        <div className="footer-section">
-          <h3 className="footer-subtitle">Candidate</h3>
-          <ul className="footer-links">
-            <li><Link to="/findjob">Browse Job</Link></li>
-            <li><Link to="/candidates">Browse Employers</Link></li>
-            <li><Link to="/profile">Candidate Dashboard</Link></li>
-            <li><Link to="/underconstruction">Saved Jobs</Link></li>
+        {/* Candidate */}
+        <div className="mb-6 sm:mb-8">
+          <h3 className="text-white font-semibold text-lg">Candidate</h3>
+          <ul className="mt-3 space-y-2">
+            <li>
+              <Link
+                to="/findjob"
+                className="hover:text-white transition-colors"
+              >
+                Browse Jobs
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/candidates"
+                className="hover:text-white transition-colors"
+              >
+                Browse Employers
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/profile"
+                className="hover:text-white transition-colors"
+              >
+                Candidate Dashboard
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/underconstruction"
+                className="hover:text-white transition-colors"
+              >
+                Saved Jobs
+              </Link>
+            </li>
           </ul>
         </div>
 
-        {/* Candidates Link Section*/}
-        <div className="footer-section">
-          <h3 className="footer-subtitle">Candidate</h3>
-          <ul className="footer-links">
-            <li><Link to="/findjob">Browse Job</Link></li>
-            <li><Link to="/candidates">Browse Employers</Link></li>
-            <li><Link to="/profile">Candidate Dashboard</Link></li>
-            <li><Link to="/underconstruction">Saved Jobs</Link></li>
+        {/* Support */}
+        <div className="mb-6 sm:mb-8">
+          <h3 className="text-white font-semibold text-lg">Support</h3>
+          <ul className="mt-3 space-y-2">
+            <li>
+              <Link
+                to="/customersupport"
+                className="hover:text-white transition-colors"
+              >
+                FAQ
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/underconstruction"
+                className="hover:text-white transition-colors"
+              >
+                Privacy & Policy
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/underconstruction"
+                className="hover:text-white transition-colors"
+              >
+                Terms & Conditions
+              </Link>
+            </li>
           </ul>
         </div>
 
-        {/* Support Link Section*/}
-        <div className="footer-section">
-          <h3 className="footer-subtitle">Support</h3>
-          <ul className="footer-links">
-            <li><Link to="/customersupport">FAQ</Link></li>
-            <li><Link to="/underconstruction">Privacy & Policy</Link></li>
-            <li><Link to="/underconstruction">Terms & Conditions</Link></li>
+        {/* Resources / Extra Section */}
+        <div className="mb-6 sm:mb-8">
+          <h3 className="text-white font-semibold text-lg">Resources</h3>
+          <ul className="mt-3 space-y-2">
+            <li>
+              <Link
+                to="/underconstruction"
+                className="hover:text-white transition-colors"
+              >
+                Documentation
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/underconstruction"
+                className="hover:text-white transition-colors"
+              >
+                Tutorials
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/underconstruction"
+                className="hover:text-white transition-colors"
+              >
+                Community
+              </Link>
+            </li>
           </ul>
         </div>
-        
-
       </div>
 
-      <div className="footer-bottom">
+      <div className="border-t border-gray-700 mt-10 pt-6 text-center text-gray-400 text-sm">
         © {new Date().getFullYear()} NetWork. All rights reserved.
       </div>
     </footer>

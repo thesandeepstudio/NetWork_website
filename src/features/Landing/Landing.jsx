@@ -1,9 +1,10 @@
 import React from "react";
 import NavBar from "../../shared/Layout/Navbar/NavBar.jsx";
-import SubHeader from "../../components/Layout/SubHeader/SubHeader.jsx";
-import Hero from "../../components/Layout/HeroSection/HeroSection.jsx";
-import PopularCategories from "../../components/Layout/PopularCategories/PopularCategories.jsx";
-import FeaturedJobs from "../../components/Layout/FeatureJobs/FeatureJobs.jsx";
+import SubHeader from "../../shared/Layout/SubHeader/SubHeader.jsx";
+
+import HeroSection from "./components/HeroSection.jsx";
+import PopularCategories from "./components/PopularCategories.jsx";
+import FindJobPreview from "./components/FindJobPreview.jsx";
 import PopularCompanies from "../../components/Layout/PopularCompanies/PopularCompanies.jsx";
 import Testimonials from "../../components/Layout/Testimonials/Testimonials.jsx";
 
@@ -12,12 +13,11 @@ const LandingPage = () => {
     <div>
       <NavBar />
       <SubHeader />
-      <Hero />
+      <HeroSection />
       <PopularCategories />
-      <FeaturedJobs />
-      <PopularCompanies/>    
-      <Testimonials />  
-
+      <FindJobPreview />  {/* preview 3 jobs */}
+      <PopularCompanies />
+      <Testimonials />
     </div>
   );
 };
