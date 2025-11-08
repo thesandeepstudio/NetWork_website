@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import NavBar from "../../components/Layout/NavBar/NavBar";
+import NavBar from "../../shared/Layout/Navbar/NavBar";
 
 const SignUpForm = () => {
   const [userType, setUserType] = useState("jobseeker");

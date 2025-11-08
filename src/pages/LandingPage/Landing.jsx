@@ -1,5 +1,5 @@
 import React from "react";
-import NavBar from "../../components/Layout/NavBar/NavBar.jsx";
+import NavBar from "../../shared/Layout/Navbar/NavBar.jsx";
 import SubHeader from "../../components/Layout/SubHeader/SubHeader.jsx";
 import Hero from "../../components/Layout/HeroSection/HeroSection.jsx";
 import PopularCategories from "../../components/Layout/PopularCategories/PopularCategories.jsx";
