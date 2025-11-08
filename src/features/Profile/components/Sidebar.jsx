@@ -87,7 +87,7 @@ const Sidebar = () => {
         {/* Setting */}
         <div className="py-2">
           <h2 className="px-2 text-lg font-normal text-gray-500 mb-2">
-            Setting
+            Settings
           </h2>
           <Link
             to="/dashboardComponent"

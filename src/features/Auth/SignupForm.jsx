@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import NavBar from "../../shared/Layout/Navbar/NavBar";
 
 const SignUpForm = () => {
+  const navigate = useNavigate();
+
   const [userType, setUserType] = useState("jobseeker");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -10,22 +12,24 @@ const SignUpForm = () => {
   const [mobile, setMobile] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [companyName, setCompanyName] = useState(""); // Employer field
+  const [position, setPosition] = useState(""); // Employer field
   const [error, setError] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     // Validation
-    if (
-      !firstName ||
-      !lastName ||
-      !email ||
-      !mobile ||
-      !password ||
-      !confirmPassword
-    ) {
-      setError("Please fill in all fields");
-      return;
+    if (userType === "jobseeker") {
+      if (!firstName || !lastName || !email || !mobile || !password || !confirmPassword) {
+        setError("Please fill in all fields for Job Seeker");
+        return;
+      }
+    } else if (userType === "employer") {
+      if (!companyName || !position || !email || !mobile || !password || !confirmPassword) {
+        setError("Please fill in all fields for Employer");
+        return;
+      }
     }
 
     if (password !== confirmPassword) {
@@ -34,16 +38,24 @@ const SignUpForm = () => {
     }
 
     setError("");
-    console.log({
-      userType,
+
+    // Save user info to localStorage (simulate backend)
+    const savedUser = {
+      type: userType,
       firstName,
       lastName,
+      companyName,
+      position,
       email,
       mobile,
       password,
-    });
+    };
+    localStorage.setItem("user", JSON.stringify(savedUser));
 
-    alert("Account created successfully!");
+    alert("Account created successfully! Redirecting to login...");
+
+    // Redirect to login page
+    navigate("/auth?tab=login");
   };
 
   return (
@@ -58,9 +70,9 @@ const SignUpForm = () => {
           {error && <p className="text-red-500 text-center mb-4">{error}</p>}
 
           <form onSubmit={handleSubmit} className="space-y-4">
-            {/* User Type */}
-            <div className="flex justify-center gap-4 mb-7 ">
-              <label className="flex items-center  text-lg gap-2">
+            {/* User Type Selector */}
+            <div className="flex justify-center gap-4 mb-7">
+              <label className="flex items-center text-lg gap-2">
                 <input
                   type="radio"
                   name="userType"
@@ -71,7 +83,7 @@ const SignUpForm = () => {
                 />
                 Job Seeker
               </label>
-              <label className="flex items-center   text-lg gap-2">
+              <label className="flex items-center text-lg gap-2">
                 <input
                   type="radio"
                   name="userType"
@@ -84,26 +96,50 @@ const SignUpForm = () => {
               </label>
             </div>
 
-            {/* Name Fields */}
-            <div className="grid grid-cols-2 gap-4">
-              <input
-                type="text"
-                placeholder="First Name"
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                required
-              />
-              <input
-                type="text"
-                placeholder="Last Name"
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                required
-              />
-            </div>
+            {/* Conditional Fields */}
+            {userType === "jobseeker" && (
+              <div className="grid grid-cols-2 gap-4">
+                <input
+                  type="text"
+                  placeholder="First Name"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  required
+                />
+                <input
+                  type="text"
+                  placeholder="Last Name"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  required
+                />
+              </div>
+            )}
 
+            {userType === "employer" && (
+              <div className="grid grid-cols-1 gap-4">
+                <input
+                  type="text"
+                  placeholder="Company Name"
+                  value={companyName}
+                  onChange={(e) => setCompanyName(e.target.value)}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  required
+                />
+                <input
+                  type="text"
+                  placeholder="Your Position"
+                  value={position}
+                  onChange={(e) => setPosition(e.target.value)}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  required
+                />
+              </div>
+            )}
+
+            {/* Common Fields */}
             <input
               type="email"
               placeholder="Email Address"
@@ -112,7 +148,6 @@ const SignUpForm = () => {
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
-
             <input
               type="tel"
               placeholder="Mobile Number"
@@ -121,7 +156,6 @@ const SignUpForm = () => {
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
-
             <input
               type="password"
               placeholder="Password"
@@ -130,7 +164,6 @@ const SignUpForm = () => {
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
-
             <input
               type="password"
               placeholder="Confirm Password"
@@ -149,7 +182,7 @@ const SignUpForm = () => {
 
             {/* Terms Notice */}
             <p className="text-xs text-gray-600 text-center mt-2">
-              By clicking "Create Account" below, you agree to the{" "}
+              By clicking "Create Account", you agree to the{" "}
               <Link to="/terms" className="text-blue-600 hover:underline">
                 Terms & Conditions
               </Link>{" "}
@@ -163,10 +196,7 @@ const SignUpForm = () => {
             {/* Already have an account */}
             <p className="text-sm text-center mt-2">
               Already have an account?{" "}
-              <Link
-                to="/auth?tab=login"
-                className="text-blue-600 hover:underline"
-              >
+              <Link to="/auth?tab=login" className="text-blue-600 hover:underline">
                 Log In
               </Link>
             </p>
