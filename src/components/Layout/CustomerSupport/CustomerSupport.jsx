@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import NavBar from "../NavBar/NavBar";
+import NavBar from "../../../shared/Layout/Navbar/NavBar";
 
-import "./CustomerSupport.css"
+import "./CustomerSupport.css";
 
 const CustomerSupport = () => {
   const [name, setName] = useState("");
@@ -18,8 +18,6 @@ const CustomerSupport = () => {
     setSubject("");
     setMessage("");
   };
-
-  
 
   return (
     <>

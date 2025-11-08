@@ -1,6 +1,6 @@
 import React from "react";
-import Auth from "./features/Auth/Auth";
 import { Routes, Route } from "react-router-dom";
+import Auth from "./features/Auth/Auth";
 import Footer from "./components/Layout/Footer/Footer";
 import LandingPage from "./pages/LandingPage/Landing";
 import FindJob from "./pages/FindJob/FindJob";
