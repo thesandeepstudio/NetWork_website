@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import NavBar from "../../shared/Layout/Navbar/NavBar.jsx";
 import SubHeader from "../../shared/Layout/SubHeader/SubHeader.jsx";
 
@@ -51,17 +51,62 @@ const jobs = [
     type: "On-site",
     link: "#",
   },
+  {
+    id: 7,
+    title: "Data Scientist",
+    company: "DataLab",
+    location: "San Francisco",
+    type: "Full-time",
+    link: "#",
+  },
+  {
+    id: 8,
+    title: "Mobile App Developer",
+    company: "AppWorks",
+    location: "Remote",
+    type: "Contract",
+    link: "#",
+  },
+  {
+    id: 9,
+    title: "QA Engineer",
+    company: "TechCorp",
+    location: "NYC",
+    type: "Full-time",
+    link: "#",
+  },
+  {
+    id: 10,
+    title: "DevOps Manager",
+    company: "CloudWorks",
+    location: "Berlin",
+    type: "On-site",
+    link: "#",
+  },
+  {
+    id: 11,
+    title: "UI Designer",
+    company: "Creative Studio",
+    location: "Remote",
+    type: "Part-time",
+    link: "#",
+  },
+  {
+    id: 12,
+    title: "Software Engineer",
+    company: "InnovateX",
+    location: "London",
+    type: "Full-time",
+    link: "#",
+  },
 ];
 
 const FindJob = () => {
-  useEffect(() => {
-    window, scrollTo(0, 0);
-  });
   return (
     <>
       <NavBar />
       <SubHeader />
-      <section className="bg-white  mt-12">
+      <section className="bg-white py-16 mt-12">
         <div className="max-w-[1200px] mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 text-left">
             Featured Jobs
