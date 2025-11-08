@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import NavBar from "../../shared/Layout/Navbar/NavBar";
 
 const LoginForm = () => {
@@ -7,6 +7,7 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,13 +20,22 @@ const LoginForm = () => {
 
     setError("");
 
-    // TODO: Replace with real auth logic
-    console.log("Logging in with:", { email, password });
+    // ✅ Simulate login (store in localStorage)
+    const user = {
+      email,
+      avatar: "/images/Hacker.png",
+      rememberMe,
+    };
 
-    // Example: Save to Local Storage
-    localStorage.setItem("currentUser", JSON.stringify({ email, rememberMe }));
+    localStorage.setItem("user", JSON.stringify(user)); // ✅ same key as NavBar
 
-    alert("Logged in Successfully");
+    alert("Logged in Successfully!");
+
+    // ✅ Redirect to homepage (or wherever you like)
+    navigate("/");
+
+    // ✅ Optional: Refresh to immediately update NavBar state
+    window.location.reload();
   };
 
   return (
@@ -35,6 +45,7 @@ const LoginForm = () => {
         <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-md">
           <h2 className="text-2xl font-bold text-center">Welcome Back</h2>
           <p className="text-center mb-6">Enter Your Login Credentials</p>
+
           {error && <p className="text-red-500 text-center mb-4">{error}</p>}
 
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -57,19 +68,21 @@ const LoginForm = () => {
             />
 
             {/* Remember me and forget Password */}
-            <div className="flex item-center justify-between text-sm">
-              <label className="flex item-center gap-2">
+            <div className="flex items-center justify-between text-sm">
+              <label className="flex items-center gap-2">
                 <input
                   type="checkbox"
                   checked={rememberMe}
                   onChange={(e) => setRememberMe(e.target.checked)}
-                  className="w-4 h-4 text-bold-600 focus:ring-blue-500 border-gray-300 rounded "
+                  className="w-4 h-4 text-bold-600 focus:ring-blue-500 border-gray-300 rounded"
                 />
                 Remember Me
               </label>
 
-              <Link to ="/support"
-              className="text-blue-600 hover:underline font-medium">
+              <Link
+                to="/support"
+                className="text-blue-600 hover:underline font-medium"
+              >
                 Forget Password?
               </Link>
             </div>
