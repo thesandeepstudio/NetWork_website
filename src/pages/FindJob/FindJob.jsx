@@ -10,7 +10,6 @@ const FindJob = () => {
       <NavBar />
       <SubHeader />
       <FeatureJobs />
-      <Footer />
     </div>
   );
 };

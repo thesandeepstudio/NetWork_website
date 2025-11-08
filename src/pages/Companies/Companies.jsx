@@ -10,8 +10,7 @@ const PopularCompaniesPage = () => {
     <div>
       <NavBar />
       <SubHeader />
-      <PopularCompaniesComponent /> {/* Render the popular companies section */}
-      <Footer />
+      <PopularCompaniesComponent /> 
     </div>
   );
 };

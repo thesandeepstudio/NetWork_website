@@ -10,8 +10,7 @@ const FindJob = () => {
     <div>
       <NavBar />
       <SubHeader />
-      <Candidates /> {/* Only candidates section */}
-      <Footer />
+      <Candidates />
     </div>
   );
 };
