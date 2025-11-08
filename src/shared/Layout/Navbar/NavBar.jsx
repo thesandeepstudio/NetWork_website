@@ -43,6 +43,16 @@ const NavBar = () => {
       className="w-full sticky top-0 z-50 bg-white shadow-md font-sans"
     >
       <div className="max-w-[1500px] mx-auto flex items-center py-4 px-4 lg:px-8 justify-between">
+        {/* Hamburger (Left) */}
+        <div
+          className="flex flex-col gap-1.5 cursor-pointer lg:hidden mr-3"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <span className="w-6 h-0.5 bg-black rounded"></span>
+          <span className="w-6 h-0.5 bg-black rounded"></span>
+          <span className="w-6 h-0.5 bg-black rounded"></span>
+        </div>
+
         {/* Logo */}
         <div className="text-2xl font-bold text-black">
           <Link to="/">NetWork</Link>
@@ -66,24 +76,9 @@ const NavBar = () => {
           ))}
         </ul>
 
-        {/* Desktop login/profile */}
-        <div className="hidden lg:flex gap-2 items-center">
-          {!currentUser ? (
-            <>
-              <Link
-                to="/auth?tab=login"
-                className="px-4 py-1.5 border border-blue-600 text-blue-600 font-semibold rounded hover:bg-blue-600 hover:text-white transition-colors duration-200"
-              >
-                Log In
-              </Link>
-              <Link
-                to="/auth?tab=signup"
-                className="px-4 py-1.5 bg-blue-600 text-white font-semibold rounded border border-blue-600 hover:bg-blue-700 transition"
-              >
-                Sign Up
-              </Link>
-            </>
-          ) : (
+        {/* Right side: login/profile */}
+        <div className="flex items-center gap-3">
+          {!isCheckingUser && currentUser ? (
             <Link to="/profile">
               <img
                 src="/images/Hacker.png"
@@ -91,82 +86,86 @@ const NavBar = () => {
                 className="w-10 h-10 rounded-full border-2 border-blue-600 object-cover hover:scale-110 transition-transform"
               />
             </Link>
-          )}
-        </div>
-
-        {/* Hamburger menu for mobile */}
-        <div
-          className="flex flex-col gap-1.5 cursor-pointer lg:hidden ml-auto"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          <span className="w-6 h-0.5 bg-black rounded"></span>
-          <span className="w-6 h-0.5 bg-black rounded"></span>
-          <span className="w-6 h-0.5 bg-black rounded"></span>
-        </div>
-
-        {/* Mobile menu */}
-        <ul
-          className={`flex flex-col gap-4 fixed top-0 right-0 h-full w-64 bg-white p-16 transition-transform transform overflow-auto z-40 ${
-            isOpen ? "translate-x-0" : "translate-x-full"
-          } lg:hidden`}
-        >
-          {/* Mobile profile on top */}
-          {!isCheckingUser && currentUser && (
-            <li className="mb-4">
-              <Link
-                to="/profile"
-                className="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-gray-200"
-                onClick={() => setIsOpen(false)}
-              >
-                <img
-                  src="/images/Hacker.png"
-                  alt="Profile Avatar"
-                  className="w-10 h-10 rounded-full border-2 border-blue-600 object-cover"
-                />
-                <span className="font-medium text-black">Profile</span>
-              </Link>
-            </li>
-          )}
-
-          {/* Mobile links */}
-          {links.map((link) => (
-            <li key={link.path}>
-              <Link
-                to={link.path}
-                className={`block px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
-                  location.pathname === link.path
-                    ? "text-blue-600 font-semibold bg-blue-100"
-                    : "text-black hover:text-blue-600"
-                }`}
-                onClick={() => setIsOpen(false)}
-              >
-                {link.name}
-              </Link>
-            </li>
-          ))}
-
-          {/* Mobile login/signup if not logged in */}
-          {!isCheckingUser && !currentUser && (
+          ) : (
             <>
-              <li>
+              {/* ✅ Small Login Button for Mobile */}
+              <Link
+                to="/auth?tab=login"
+                className="px-3 py-1 text-sm font-semibold border border-blue-600 text-blue-600 rounded hover:bg-blue-600 hover:text-white transition-colors duration-200 lg:hidden"
+              >
+                Log In
+              </Link>
+
+              {/* Desktop Buttons */}
+              <div className="hidden lg:flex gap-2">
                 <Link
                   to="/auth?tab=login"
-                  className="block px-4 py-2 rounded-lg font-medium text-blue-600 border border-blue-600 hover:bg-blue-600 hover:text-white transition-colors duration-200 text-center"
-                  onClick={() => setIsOpen(false)}
+                  className="px-4 py-1.5 border border-blue-600 text-blue-600 font-semibold rounded hover:bg-blue-600 hover:text-white transition-colors duration-200"
                 >
                   Log In
                 </Link>
-              </li>
-              <li>
                 <Link
                   to="/auth?tab=signup"
-                  className="block px-4 py-2 rounded-lg font-medium text-white bg-blue-600 border border-blue-600 hover:bg-blue-700 transition text-center"
-                  onClick={() => setIsOpen(false)}
+                  className="px-4 py-1.5 bg-blue-600 text-white font-semibold rounded border border-blue-600 hover:bg-blue-700 transition"
                 >
                   Sign Up
                 </Link>
-              </li>
+              </div>
             </>
+          )}
+        </div>
+
+        {/* Mobile slide-out menu */}
+        <ul
+          className={`flex flex-col justify-between fixed top-0 left-0 h-full w-64 bg-white p-7 pt-20 transition-transform transform overflow-auto z-40 ${
+            isOpen ? "translate-x-0" : "-translate-x-full"
+          } lg:hidden`}
+        >
+          <div>
+            {/* ✖️ Close Button */}
+            <button
+              onClick={() => setIsOpen(false)}
+              className="absolute top-4 right-4 text-2xl font-bold text-gray-600 hover:text-black"
+            >
+              &times;
+            </button>
+
+            {/* Navigation links */}
+            {links.map((link) => (
+              <li key={link.path}>
+                <Link
+                  to={link.path}
+                  className={`block px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
+                    location.pathname === link.path
+                      ? "text-blue-600 font-semibold bg-blue-100"
+                      : "text-black hover:text-blue-600"
+                  }`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              </li>
+            ))}
+          </div>
+
+          {/* ✅ Mobile Login & Signup Buttons */}
+          {!isCheckingUser && !currentUser && (
+            <div className="flex flex-col gap-3 mt-auto pb-6">
+              <Link
+                to="/auth?tab=login"
+                className="block px-4 py-2 rounded-lg font-medium text-blue-600 border border-blue-600 hover:bg-blue-600 hover:text-white transition-colors duration-200 text-center"
+                onClick={() => setIsOpen(false)}
+              >
+                Log In
+              </Link>
+              <Link
+                to="/auth?tab=signup"
+                className="block px-4 py-2 rounded-lg font-medium text-white bg-blue-600 border border-blue-600 hover:bg-blue-700 transition text-center"
+                onClick={() => setIsOpen(false)}
+              >
+                Sign Up
+              </Link>
+            </div>
           )}
         </ul>
       </div>
