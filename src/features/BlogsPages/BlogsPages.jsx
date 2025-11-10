@@ -1,4 +1,5 @@
 import React from "react";
+import NavBar from "../../shared/Layout/Navbar/NavBar";
 
 const blogPosts = [
   {
@@ -40,20 +41,23 @@ const blogPosts = [
 
 const BlogsPages = () => {
   return (
-    <div className="max-w-5xl mx-auto p-6 mt-8 space-y-8">
-      {blogPosts.map((post) => (
-        <div
-          key={post.id}
-          className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow"
-        >
-          <h2 className="text-2xl font-bold mb-2">{post.title}</h2>
-          <p className="text-gray-500 mb-4">
-            By {post.author} | {post.date}
-          </p>
-          <p className="text-gray-700 whitespace-pre-line">{post.content}</p>
-        </div>
-      ))}
-    </div>
+    <>
+      <NavBar />
+      <div className="max-w-5xl mx-auto p-6 mt-8 space-y-8">
+        {blogPosts.map((post) => (
+          <div
+            key={post.id}
+            className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow"
+          >
+            <h2 className="text-2xl font-bold mb-2">{post.title}</h2>
+            <p className="text-gray-500 mb-4">
+              By {post.author} | {post.date}
+            </p>
+            <p className="text-gray-700 whitespace-pre-line">{post.content}</p>
+          </div>
+        ))}
+      </div>
+    </>
   );
 };
 

@@ -21,12 +21,26 @@ const SignUpForm = () => {
 
     // Validation
     if (userType === "jobseeker") {
-      if (!firstName || !lastName || !email || !mobile || !password || !confirmPassword) {
+      if (
+        !firstName ||
+        !lastName ||
+        !email ||
+        !mobile ||
+        !password ||
+        !confirmPassword
+      ) {
         setError("Please fill in all fields for Job Seeker");
         return;
       }
     } else if (userType === "employer") {
-      if (!companyName || !position || !email || !mobile || !password || !confirmPassword) {
+      if (
+        !companyName ||
+        !position ||
+        !email ||
+        !mobile ||
+        !password ||
+        !confirmPassword
+      ) {
         setError("Please fill in all fields for Employer");
         return;
       }
@@ -51,8 +65,6 @@ const SignUpForm = () => {
       password,
     };
     localStorage.setItem("user", JSON.stringify(savedUser));
-
-    alert("Account created successfully! Redirecting to login...");
 
     // Redirect to login page
     navigate("/auth?tab=login");
@@ -196,7 +208,10 @@ const SignUpForm = () => {
             {/* Already have an account */}
             <p className="text-sm text-center mt-2">
               Already have an account?{" "}
-              <Link to="/auth?tab=login" className="text-blue-600 hover:underline">
+              <Link
+                to="/auth?tab=login"
+                className="text-blue-600 hover:underline"
+              >
                 Log In
               </Link>
             </p>

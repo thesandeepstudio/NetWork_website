@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import NavBar from "../../../shared/Layout/Navbar/NavBar";
-
-import "./CustomerSupport.css";
+import NavBar from "../../shared/Layout/Navbar/NavBar";
 
 const CustomerSupport = () => {
   const [name, setName] = useState("");
@@ -11,7 +9,7 @@ const CustomerSupport = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`Thank you, ${name}! Your message has been submitted.`);
+
     // Reset form
     setName("");
     setEmail("");
@@ -22,20 +20,26 @@ const CustomerSupport = () => {
   return (
     <>
       <NavBar />
-      <div className="support-page">
-        <h1 className="support-title">Customer Support</h1>
-        <p className="support-description">
+
+      <div className="max-w-3xl mx-auto my-12 px-4 text-center font-sans">
+        {/* Page Title */}
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Customer Support
+        </h1>
+        <p className="text-gray-500 text-base md:text-lg mb-10 leading-relaxed">
           Need help? Fill out the form below and our support team will get back
           to you shortly.
         </p>
 
-        <form className="support-form" onSubmit={handleSubmit}>
+        {/* Form */}
+        <form className="flex flex-col gap-5 mb-12" onSubmit={handleSubmit}>
           <input
             type="text"
             placeholder="Your Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
+            className="p-3 border border-gray-300 rounded-xl text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none"
           />
           <input
             type="email"
@@ -43,6 +47,7 @@ const CustomerSupport = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
+            className="p-3 border border-gray-300 rounded-xl text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none"
           />
           <input
             type="text"
@@ -50,21 +55,30 @@ const CustomerSupport = () => {
             value={subject}
             onChange={(e) => setSubject(e.target.value)}
             required
+            className="p-3 border border-gray-300 rounded-xl text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none"
           />
           <textarea
             placeholder="Your Message"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             required
+            className="p-3 border border-gray-300 rounded-xl text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none min-h-[140px] resize-y"
           ></textarea>
-          <button type="submit" className="submit-btn">
+
+          <button
+            type="submit"
+            className="bg-blue-500 text-white font-semibold text-lg py-3 rounded-xl hover:bg-blue-600 hover:-translate-y-1 transition-all duration-200"
+          >
             Send Message
           </button>
         </form>
 
-        <div className="faq-section">
-          <h2>Frequently Asked Questions</h2>
-          <ul>
+        {/* FAQ Section */}
+        <div className="text-left bg-gray-50 p-8 rounded-xl shadow-md">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+            Frequently Asked Questions
+          </h2>
+          <ul className="list-disc pl-6 text-gray-500 space-y-2">
             <li>How do I reset my password?</li>
             <li>How do I update my profile information?</li>
             <li>How can I apply for a job or post a candidate?</li>

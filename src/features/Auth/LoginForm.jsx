@@ -29,8 +29,6 @@ const LoginForm = () => {
 
     localStorage.setItem("user", JSON.stringify(user)); // ✅ same key as NavBar
 
-    alert("Logged in Successfully!");
-
     // ✅ Redirect to homepage (or wherever you like)
     navigate("/");
 

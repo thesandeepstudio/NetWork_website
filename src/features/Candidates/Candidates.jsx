@@ -1,5 +1,6 @@
 import React from "react";
-import "./Candidates.css"; // Create this CSS file
+import NavBar from "../../shared/Layout/Navbar/NavBar";
+import SubHeader from "../../shared/Layout/SubHeader/SubHeader";
 
 const candidates = [
   {
@@ -58,7 +59,6 @@ const candidates = [
     location: "London, UK",
     avatar: "https://i.pravatar.cc/100?img=63",
   },
-
   {
     id: 9,
     name: "Alice Johnson",
@@ -91,26 +91,39 @@ const candidates = [
 
 export default function Candidates() {
   return (
-    <section className="candidates">
-      <div className="candidates-container">
-        <h2 className="candidates-title">Top Candidates</h2>
-        <p className="candidates-subtitle">Meet our skilled professionals</p>
+    <>
+      <NavBar />
+      <SubHeader />
+      <section className="bg-white py-16">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold text-gray-900">Top Candidates</h2>
+          <p className="mt-2 text-gray-500 text-base">
+            Meet our skilled professionals
+          </p>
 
-        <div className="candidates-grid">
-          {candidates.map((candidate) => (
-            <div key={candidate.id} className="candidate-card">
-              <img
-                src={candidate.avatar}
-                alt={candidate.name}
-                className="candidate-avatar"
-              />
-              <h3 className="candidate-name">{candidate.name}</h3>
-              <p className="candidate-role">{candidate.role}</p>
-              <p className="candidate-location">{candidate.location}</p>
-            </div>
-          ))}
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            {candidates.map((candidate) => (
+              <div
+                key={candidate.id}
+                className="bg-gray-50 border border-gray-200 rounded-xl p-6 text-center shadow-sm hover:shadow-lg transition-shadow duration-300"
+              >
+                <img
+                  src={candidate.avatar}
+                  alt={candidate.name}
+                  className="w-24 h-24 rounded-full object-cover mx-auto mb-4"
+                />
+                <h3 className="text-lg font-semibold text-gray-900">
+                  {candidate.name}
+                </h3>
+                <p className="text-gray-700 text-sm mt-1">{candidate.role}</p>
+                <p className="text-gray-500 text-xs mt-1">
+                  {candidate.location}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

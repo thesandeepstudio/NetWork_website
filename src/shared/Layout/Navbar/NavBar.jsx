@@ -33,7 +33,7 @@ const NavBar = () => {
     { path: "/findJob", name: "Find Jobs" },
     { path: "/companies", name: "Companies" },
     { path: "/candidates", name: "Candidates" },
-    { path: "/support", name: "Support" },
+    { path: "customerSupport", name: "Support" },
     { path: "/blogs", name: "Blogs" },
   ];
 

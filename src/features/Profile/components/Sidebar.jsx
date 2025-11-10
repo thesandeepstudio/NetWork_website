@@ -15,97 +15,99 @@ import { LuSquareChartGantt } from "react-icons/lu";
 import { IoIosLogOut } from "react-icons/io";
 
 const Sidebar = () => {
-  const navigation = useNavigate();
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     localStorage.removeItem("user");
-    navigation("/");
+    navigate("/");
   };
 
   return (
-    <div className="w-64 bg-gray-100 min-h-screen flex flex-col justify-between p-6">
+    <div className="w-64 bg-white min-h-screen flex flex-col justify-between p-6 shadow-lg rounded-xl">
       <div>
         {/* Logo */}
         <div className="text-2xl font-bold text-black mb-5">
-          <Link to="/">NetWork</Link>
+          <Link to="/profile/dashboard">NetWork</Link>
         </div>
 
-        {/* Profile */}
+        {/* Profile Section */}
         <div className="py-2">
-          <h2 className="px-2 text-lg font-normal text-gray-500 mb-2">
+          <h2 className="px-2 text-sm font-semibold text-gray-400 uppercase tracking-wide mb-2">
             Profile
           </h2>
           <Link
-            to="/dashboardComponent"
-            className="py-2 px-2 text-base font-bold rounded hover:bg-gray-200 flex items-center gap-2"
+            to="/profile/dashboard"
+            className="flex items-center gap-2 px-2 py-2 text-base font-normal text-gray-700 rounded hover:bg-gray-200 transition-colors duration-200"
           >
             <FaUserCircle size={20} className="text-gray-700" />
             <span>Edit Profile</span>
           </Link>
           <Link
-            to="/dashboardComponent"
-            className="py-2 px-2 text-base font-bold rounded hover:bg-gray-200 flex items-center gap-2"
+            to="/profile/language"
+            className="flex items-center gap-2 px-2 py-2 text-base font-normal text-gray-700 rounded hover:bg-gray-200 transition-colors duration-200"
           >
             <FaGlobeAsia size={20} className="text-gray-700" />
             <span>Language</span>
           </Link>
           <Link
-            to="/dashboardComponent"
-            className="py-2 px-2 text-base font-bold rounded hover:bg-gray-200 flex items-center gap-2"
+            to="/profile/notifications"
+            className="flex items-center gap-2 px-2 py-2 text-base font-normal text-gray-700 rounded hover:bg-gray-200 transition-colors duration-200"
           >
             <IoMdNotifications size={20} className="text-gray-700" />
             <span>Notifications</span>
           </Link>
         </div>
 
-        {/* Bank */}
+        {/* Bank Section */}
         <div className="py-2">
-          <h2 className="px-2 text-lg font-normal text-gray-500 mb-2">Bank</h2>
+          <h2 className="px-2 text-sm font-semibold text-gray-400 uppercase tracking-wide mb-2">
+            Bank
+          </h2>
           <Link
-            to="/dashboardComponent"
-            className="py-2 px-2 text-base font-bold rounded hover:bg-gray-200 flex items-center gap-2"
+            to="/profile/payments"
+            className="flex items-center gap-2 px-2 py-2 text-base font-normal text-gray-700 rounded hover:bg-gray-200 transition-colors duration-200"
           >
             <FaCreditCard size={20} className="text-gray-700" />
             <span>Payments</span>
           </Link>
           <Link
-            to="/dashboardComponent"
-            className="py-2 px-2 text-base font-bold rounded hover:bg-gray-200 flex items-center gap-2"
+            to="/profile/taxes"
+            className="flex items-center gap-2 px-2 py-2 text-base font-normal text-gray-700 rounded hover:bg-gray-200 transition-colors duration-200"
           >
             <FaMoneyBill size={20} className="text-gray-700" />
             <span>Taxes</span>
           </Link>
           <Link
-            to="/dashboardComponent"
-            className="py-2 px-2 text-base font-bold rounded hover:bg-gray-200 flex items-center gap-2"
+            to="/profile/transactions"
+            className="flex items-center gap-2 px-2 py-2 text-base font-normal text-gray-700 rounded hover:bg-gray-200 transition-colors duration-200"
           >
             <GrTransaction size={20} className="text-gray-700" />
             <span>Transactions</span>
           </Link>
         </div>
 
-        {/* Setting */}
+        {/* Settings Section */}
         <div className="py-2">
-          <h2 className="px-2 text-lg font-normal text-gray-500 mb-2">
+          <h2 className="px-2 text-sm font-semibold text-gray-400 uppercase tracking-wide mb-2">
             Settings
           </h2>
           <Link
-            to="/dashboardComponent"
-            className="py-2 px-2 text-base font-bold rounded hover:bg-gray-200 flex items-center gap-2"
+            to="/profile/password"
+            className="flex items-center gap-2 px-2 py-2 text-base font-normal text-gray-700 rounded hover:bg-gray-200 transition-colors duration-200"
           >
             <RiLockPasswordLine size={20} className="text-gray-700" />
             <span>Password</span>
           </Link>
           <Link
-            to="/dashboardComponent"
-            className="py-2 px-2 text-base font-bold rounded hover:bg-gray-200 flex items-center gap-2"
+            to="/profile/access"
+            className="flex items-center gap-2 px-2 py-2 text-base font-normal text-gray-700 rounded hover:bg-gray-200 transition-colors duration-200"
           >
             <IoAccessibility size={20} className="text-gray-700" />
             <span>Access</span>
           </Link>
           <Link
-            to="/dashboardComponent"
-            className="py-2 px-2 text-base font-bold rounded hover:bg-gray-200 flex items-center gap-2"
+            to="/profile/session"
+            className="flex items-center gap-2 px-2 py-2 text-base font-normal text-gray-700 rounded hover:bg-gray-200 transition-colors duration-200"
           >
             <LuSquareChartGantt size={20} className="text-gray-700" />
             <span>Session</span>

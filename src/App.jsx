@@ -1,16 +1,16 @@
 import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Auth from "./features/Auth/Auth";
-import Footer from "./components/Layout/Footer/Footer";
+import Footer from "./shared/Layout/Footer/Footer.jsx";
 import LandingPage from "./features/Landing/Landing";
 import FindJob from "./features/FindJob/FindJob.jsx";
-import PopularCompanies from "./pages/Companies/Companies";
-import Candidates from "./pages/Candidates/Candidates";
-import Support from "./pages/Support/Support";
-import Blogs from "./pages/Blogs/Blogs";
+import PopularCompanies from "./features/PopularCompanies/PopularCompanies.jsx";
+import Candidates from "./features/Candidates/Candidates.jsx";
+import CustomerSupport from "./features/CustomerSupport/CustomerSupport.jsx";
+import BlogsPages from "./features/BlogsPages/BlogsPages.jsx";
 import Profile from "./features/Profile/Profile";
 
-import UnderConstruction from "./components/Layout/UnderConstruction/UnderConstruction";
+import UnderConstruction from "./features/UnderConstruction/UnderConstruction.jsx";
 
 const App = () => {
   const location = useLocation();
@@ -26,10 +26,11 @@ const App = () => {
           <Route path="/findJob" element={<FindJob />} />
           <Route path="/companies" element={<PopularCompanies />} />
           <Route path="/candidates" element={<Candidates />} />
-          <Route path="/support" element={<Support />} />
-          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/customerSupport" element={<CustomerSupport />} />
+          <Route path="/blogs" element={<BlogsPages />} />
           <Route path="/auth" element={<Auth />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile/*" element={<Profile />} />
+
           <Route path="/underConstruction" element={<UnderConstruction />} />
         </Routes>
       </div>

@@ -1,5 +1,4 @@
 import React from "react";
-import "./PopularCompanies.css"; // Import the CSS file
 
 const companies = [
   {
@@ -61,24 +60,33 @@ const companies = [
   },
 ];
 
-export default function PopularCompanies() {
+export default function PopularCompaniesPreview() {
   return (
-    <section className="companies">
-      <div className="companies-container">
-        <h2 className="companies-title">Popular Companies</h2>
-        <p className="companies-subtitle">Work with top organizations</p>
+    <section className="bg-white py-16 mt-12">
+      <div className="max-w-6xl mx-auto px-4 text-left">
+        <h2 className="text-2xl font-bold text-gray-900">Popular Companies</h2>
+        <p className="mt-2 text-gray-500 text-base">
+          Work with top organizations
+        </p>
 
-        <div className="companies-grid">
+        <div className="mt-8 grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
           {companies.map((company) => (
-            <div key={company.id} className="company-card">
+            <div
+              key={company.id}
+              className="bg-gray-50 border border-gray-200 rounded-xl p-6 text-center transition-transform transform hover:-translate-y-1 hover:shadow-lg"
+            >
               <img
                 src={company.logo}
                 alt={company.name}
-                className="company-logo"
+                className="w-16 h-16 object-contain mx-auto mb-4"
               />
-              <h3 className="company-name">{company.name}</h3>
-              <p className="company-location">{company.location}</p>
-              <p className="company-jobs">{company.jobs}</p>
+              <h3 className="text-lg font-semibold text-gray-900">
+                {company.name}
+              </h3>
+              <p className="text-gray-500 text-sm mt-1">{company.location}</p>
+              <p className="text-blue-600 font-medium text-sm mt-2">
+                {company.jobs}
+              </p>
             </div>
           ))}
         </div>
