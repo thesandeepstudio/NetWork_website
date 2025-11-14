@@ -18,13 +18,13 @@ const Hero = () => {
 
           <div className="flex flex-row gap-4 w-full max-w-xs mx-auto md:mx-0">
             <Link
-              to="/under_construction"
+              to="/JobPost"
               className="flex-1 px-3 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors text-center"
             >
               Post a Job
             </Link>
             <Link
-              to="/findjob"
+              to="/FindJob"
               className="flex-1 px-3 py-2 border border-blue-600 text-blue-600 font-semibold rounded-lg hover:bg-blue-50 transition text-center"
             >
               Apply a Job

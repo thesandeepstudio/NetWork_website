@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
-import DashboardContent from "./components/DashboardContent";
+import EditProfile from "./components/content/EditProfile";
 
 const Profile = () => {
   return (
@@ -10,51 +10,22 @@ const Profile = () => {
       {/* Sidebar */}
       <Sidebar />
 
-      {/* Main content */}
+      {/* Main Content Area */}
       <div className="flex-1 flex flex-col">
         {/* Header */}
         <Header />
 
-        {/* Content area */}
+        {/* Content Section */}
         <div className="p-6 flex-1 overflow-auto">
           <Routes>
-            {/* Redirect /profile to /profile/dashboard */}
-            <Route path="/" element={<Navigate to="dashboard" replace />} />
+            {/* Default redirect */}
+            <Route path="/" element={<Navigate to="editProfile" replace />} />
 
-            {/* Dashboard content routes */}
-            <Route
-              path="dashboard"
-              element={<DashboardContent title="Edit Profile" />}
-            />
-            <Route
-              path="language"
-              element={<DashboardContent title="Language" />}
-            />
-            <Route
-              path="notifications"
-              element={<DashboardContent title="Notifications" />}
-            />
-            <Route
-              path="payments"
-              element={<DashboardContent title="Payments" />}
-            />
-            <Route path="taxes" element={<DashboardContent title="Taxes" />} />
-            <Route
-              path="transactions"
-              element={<DashboardContent title="Transactions" />}
-            />
-            <Route
-              path="password"
-              element={<DashboardContent title="Password" />}
-            />
-            <Route
-              path="access"
-              element={<DashboardContent title="Access" />}
-            />
-            <Route
-              path="session"
-              element={<DashboardContent title="Session" />}
-            />
+            {/* Profile sub-routes */}
+            <Route path="editProfile" element={<EditProfile />} />
+            {/* Later you can add:
+                <Route path="language" element={<Language />} /> etc.
+            */}
           </Routes>
         </div>
       </div>

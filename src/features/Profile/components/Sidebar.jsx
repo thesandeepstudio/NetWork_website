@@ -27,7 +27,7 @@ const Sidebar = () => {
       <div>
         {/* Logo */}
         <div className="text-2xl font-bold text-black mb-5">
-          <Link to="/profile/dashboard">NetWork</Link>
+          <Link to="/">NetWork</Link>
         </div>
 
         {/* Profile Section */}
@@ -36,7 +36,7 @@ const Sidebar = () => {
             Profile
           </h2>
           <Link
-            to="/profile/dashboard"
+            to="/profile/editProfile"
             className="flex items-center gap-2 px-2 py-2 text-base font-normal text-gray-700 rounded hover:bg-gray-200 transition-colors duration-200"
           >
             <FaUserCircle size={20} className="text-gray-700" />
